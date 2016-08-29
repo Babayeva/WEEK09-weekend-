@@ -1,0 +1,195 @@
+1. Deyisen $var olaraq yazildigi halda, funksiya deyisenlerinin deyerleri oturulur ve eger, deyisenin deyeri funksiya daxilinde deyisilerse, funksiyanin cagirildigi yerde deyisenin deyeri deyismir. Bunun qarsisini almaq ucun $var deyisenin qarsisina & isaresi yazilir. 
+
+2. $$var deyiseni adi $var olan deyisenin deyerinden istifade edir. Bu o demekdir ki, $var normal deyisen,   $$var ise $var deyisenine istinad eden deyisendir. Bu,kod yazarken deyisenin deyiseni yaratmaga imkan yaradir. 
+
+3. isset() funksiyasi deyisenin teyin olunub-olunmadigini yoxlamaq ucun istifade edilir. Eger, isset() funsiyasina gelen deyer Null deyilse, bu zaman bu fuksiya true deyer qaytarir. Eks teqdirde, false deyeri qaytarir.
+
+4. Eger, deyiseni serialize() funksiyasina salsaq, deyiseni bir array kimi gsterir ve daxilindeki melumatlari arrayin elementleri kimi bildirir. Array haqqinda melumat verdiyi kimi by fuksiiya array daxilindeki elementler haqqinda da melumat verir. Meselen, uzunluqlari, string,integer ve s. olmaqlari.
+
+5. ---
+
+6. Hec bir deyisiklik etmeden de ekrana verilen cumle yazmaq mumkundur. 
+
+7. unlink() funksiyasi ile unset() funksiyasinin esas ferqi unset() basladilmis her hansi bir sessioni dayandirir, unlink() ise hemin fuksiyani tamamile silir.
+
+8. Hec bir sey cixmayacaq. Cunki $first_name deyisenini echo, var_dump, print_r ve s. ile yazdirmadiq.
+
+9. ---
+
+10. true qaytarir. Iki secim arasindan ilk true oxundugu ucun truedeyer qaytarilir.
+
+11. 255. 0xFF 16-liq say sistemindedir. 10-luq say sisteminde 0xFF 255-e beraber olur ve sert odenir. Bu sebeble, $x deyeri 0xFF den integer olaraq 255-e deyisecek.
+
+12. $i-nin deyeri 8-lik sistemde 016 di. Yeni, 016 10-luq say sistemde  14-e beraberdi. Belelikle, echoda 14 2-ye bolunur ve cavab 7-ye beraber olur.
+
+13. Class xususiyyetlerinin ve ya usullarinin static olaraq bilinmesi, onlarin class numunesinden yaratmadan hemin xususiyyet ve usullardan istifade etmeye imkan yaradir. Lakin, static olan xususiyyetler ve usullar diger class-larin obyektinden cagirmaq mumkun deyil. Final keyword-u PHP 5 yarananda meydana gelmisdir. Eger bir class final keywordu ile bildirilmisdirse, hemin class genislendire bilmez. 
+
+14. PHP-de movcud olan session ve cookies arasinda esas ferq istifadeye basladiqda session unset ve ya destroy edilmeyibse browser baglanana qeder fealiyyetini davametdirir. Lakin, cookies username ve kodlari yadinda saxlayaraq sayta avtomatik daxil olmani temin edir. Bu da istifadeciye tekrar kod ve username yazmamaqda komek edir.
+
+15. Constructor funksiyasinin esas xususiyyeti object yaranmamisdn evvel ona lazim olan deyerleri yuklemekdir.Bu sebeble, bu fuksiya private ve ya protected olarsa, public olan class ve object ile elaqe yaratmagi cetinlesecek.  
+
+16. traitler-in komekliyi ile bir kodu bir nece class icerisinde istifade ede bilerik.
+
+	trait example{
+		function write(){
+			echo "Hello World!";
+		}
+	}
+
+	class sample {
+		use example;
+	}
+
+	class sampleTwo {
+		use example;
+	}
+
+	$sample = new example;
+	$sample -> write();
+
+	$sampleTwo = new iki;
+	$sampleTwo -> write()
+
+17. class Database{
+
+ 		public $db_host;
+		public $db_user;
+		public $db_password;
+		public $db_name;
+		
+
+		public function  connect($db_host, $db_user, $db_password, $db_name){
+
+	 		$this -> db_host = $db_host;
+	 		$this -> db_user = $db_user;
+	 		$this -> db_password = $db_password;
+	 		$this -> db_name = $db_name;
+
+
+	 		$db_con = mysqli_connect($db_host,$db_user,$db_password,$db_name);
+			
+	 		if(!$db_con){
+	 			echo 'ERROR';
+	 		}
+	 	}
+	 }
+
+	connect('localhost', 'root', '', 'db_name'); 
+
+18. 
+
+19. function hesabla($number1, $number2, $islem)
+	{
+		switch ($islem) {
+			case '+':
+				echo "$number1" + "$number2";
+				break;
+			
+			case '-':
+				echo "$number1" - "$number2";
+				break;
+			case '*':
+				echo "$number1" * "$number2";
+				break;
+			case '/':
+				if ($number2 == 0) {
+					echo "error";
+					break;
+				}else {
+					echo "$number1" / "$number2";
+				break;
+				}
+		}
+	}
+
+	$hesabla = hesabla(12,5,'/');
+	echo $hesabla;
+
+20.
+
+21.session_unregister() funksiyasi hemin sessionda olan gloabal deyisene tesir edir, session_unset ise butun sessionlardaki deyisenlere tesir edir. session_unregister() serverde saxlanilan sessionu tamamile silir. session_unset() ise, serverdeki session-in icindeki melumati silir.
+
+22.$GLOBALS PHP-nin super gloabl deyisenidir hansi ki, PHPde isteniler global deyisene (funksiya veya method daxili) tesir ede biler. 
+
+23.
+
+24. <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form method="post" action="" enctype="multipart/form-data">
+
+                      
+                            <input type="file" name="sekil">
+                            <input type="submit" value="Yukle" name="upload">
+                   
+        </form>
+</body>
+</html>
+<?php
+
+
+
+$target_dir = "day1/";
+$target_file = $target_dir . date('dmYGis') . basename($_FILES["sekil"]["name"]);
+
+$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+
+
+
+if ($imageFileType == 'jpg' || $imageFileType == 'png'|| $imageFileType == 'gif') {
+	 echo 'bu fayl' . $imageFileType."dir";
+} else {
+    header("Location:index.php");
+}
+?>
+
+25.		<?php 							<?php
+		$txt1 = "Hello";                $txt1 = "Hello";
+		$txt2 = " world!";				$txt2 = " world!";				
+		$txt1 .= $txt2;					$txt1.$txt2;				
+		echo $txt1;						echo $txt1.$txt2;
+		?> 								?>  
+
+Neticede her iki kodu daxil etdikden sonra ekranda Hello World yazacaq.Bele neticeye gelmek olar ki "."	elaqelendirici operatordu, ".=" $txt2 ni birlesdirir ve $txt2 den daha sonra istifade etmir.															 
+
+26.getimagesize() funksiyasi seklin hundurluyunu enini ve tipi haqqinda array formasinda informasiya cixardir.
+
+27.PHPde esasen 4 tip error var: 
+-Parse Error (Syntax Error);
+--parse error esasen sintaksis sehvleri olarken yaranan errordur. parse errorunun esas yaranma sebebler bunlardir:
+	-baglanmamis dirnaqlar;
+	-catismayan ve ya elave parantes(yeni {}()-dan);
+	-ve noqte vergul sehvleri;
+
+-Fatal Error;
+--PHP sizin ne etmek istediyinizi anlayanda lakin etmek istediyiniz sey mumkun olmayanda FATAL ERROR gosterir.Meselen: eger PHPde teyin olunmamis funksiyaya muraciet etmek isteseniz, o zaman FATAL ERROR yaranacaq.
+-Warning Error;
+--Warning Error her hansi fayli PHP teleb etdikde yaranir. meselen siz include(example.php) ve hemin example.php fayli tapilmadiqda WARNING ERROR yaranir.
+-Notice Error;
+--Notice Error daxil ounmamis deyisen girdikde yaranir, meselen: 
+<?php
+
+$a="Hello ";
+
+echo $b;
+
+?>
+eger bu kodu run etsek NOTICE ERROR UNDEFINED VARIABLE $b gelcek cunki b deyiseni PHP-ye tanidilmayib.
+
+28.
+29.
+
+30. mail() funksiyasi skriptin mail gondermeye komek edir.mail(to,subject,message,headers,parameters); Meselen:
+<?php
+$to = "fidan.h@code.edu.az";
+$subject = "Answers";
+$txt = "Answer of how to send mail in php";
+$headers = "From: webmaster@example.com".
+"CC: somebodyelse@example.com";
+
+mail($to,$subject,$txt,$headers);
+?>
